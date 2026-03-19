@@ -5,7 +5,7 @@ const port = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-res.send('Hello World!');
+res.send('Hello Wormbkjld!');
 });
 app.post('/data', (req, res) => {
 const data = req.body;
