@@ -1,19 +1,12 @@
-FROM node:22-alpine As build
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci --omit=dev
 
 COPY . .
 
-RUN npm run build
+EXPOSE 3000
 
-
-FROM node:22-alpine
-
-COPY --from=build /app .
-
-EXPOSE 5050
-
-CMD ["node","index.js"]
+CMD ["node", "index.js"]
